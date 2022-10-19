@@ -3,5 +3,13 @@ module.exports = defineConfig({
   transpileDependencies: true,
   publicPath: './',
   outputDir: '../docs',
-  lintOnSave:false
+  lintOnSave:false,
+  chainWebpack: config => {
+    config
+        .plugin('html')
+        .tap(args => {
+          args[0].title= 'CAD的个人网站'
+          return args
+        })
+  }
 })
