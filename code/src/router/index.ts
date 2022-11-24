@@ -1,5 +1,5 @@
 import {createRouter,createWebHashHistory }from 'vue-router'
-import christmas from '@/pages/christmas.vue'
+import christmas from '@/pages/christmas/index.vue'
 
 
 const routes = [
