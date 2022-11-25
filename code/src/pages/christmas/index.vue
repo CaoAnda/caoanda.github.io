@@ -1,12 +1,12 @@
 <template >
   <div style="display: flex; flex-direction: column; align-items: center">
-    <el-card class="box-card" shadow="always" style="width: 350px">
+    <el-card class="box-card" shadow="always" style="width: 350px; margin: 20px auto">
       <template #header>
         <div class="card-header middle">
           / 🎄⛄⛄🎁🔔🎁⛄⛄🎄 /
         </div>
       </template>
-      <div v-for="person in persons" class="text item" style="margin-top: 20px;">
+      <div v-for="person in persons" class="text item" style="margin: 20px 35px">
         <el-row>
           <el-avatar :src=person.imgSrc></el-avatar>
           <span style="flex-grow: 1;  font-size: larger" class="middle">{{person.name}}</span>
@@ -16,12 +16,11 @@
   </div>
 <!--  <el-image :src="require('@/pages/christmas/assets/cad.jpg')"></el-image>-->
   <div>
-    <el-dialog v-model="dialogVisable">
+    <el-dialog v-model="dialogVisable" style="">
 <!--      <span style="text-align: center">hello</span>-->
       <el-card shadow="always">
         <el-image :src="dialogImage" ></el-image>
       </el-card>
-
     </el-dialog>
   </div>
 
@@ -56,7 +55,7 @@ function snow() {
   //  1、定义一片雪花模板
   var flake = document.createElement('div');
   // 雪花字符 ❄❉❅❆✻✼❇❈❊✥✺
-  var contents = ['🎁', '❄', '🔔']
+  var contents = ['🎁', '❄', '🎵', '🔔']
   flake.innerHTML = '❆';
   // flake.innerHTML = '❄';
   // flake.innerHTML = '🔔';
@@ -124,6 +123,12 @@ function snow() {
   }, millisec);
 }
 snow();
+console.log(getIPAddress())
+function getIPAddress(){
+  var Ip=returnCitySN['cip']
+  var cityname=returnCitySN['cname']
+  return cityname
+}
 
 </script>
 
