@@ -13,6 +13,12 @@
         </el-row>
       </div>
     </el-card>
+    <div>
+      📍 {{getIPAddress()}} 🏠
+    </div>
+    <el-card shadow="hover" style="font-size: 70px; margin: 30px">
+      🎅
+    </el-card>
   </div>
 <!--  <el-image :src="require('@/pages/christmas/assets/cad.jpg')"></el-image>-->
   <div>
@@ -123,7 +129,6 @@ function snow() {
   }, millisec);
 }
 snow();
-console.log(getIPAddress())
 function getIPAddress(){
   var Ip=returnCitySN['cip']
   var cityname=returnCitySN['cname']
