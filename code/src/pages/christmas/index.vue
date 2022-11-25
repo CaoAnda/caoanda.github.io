@@ -15,8 +15,9 @@
     </el-card>
     <div>
       📍 {{getIPAddress()}} 🏠
+      {{ addr }}
     </div>
-    <el-card shadow="hover" style="font-size: 70px; margin: 30px">
+    <el-card shadow="always" style="font-size: 70px; margin: 30px">
       🎅
     </el-card>
   </div>
@@ -37,6 +38,7 @@
 import {ref} from "vue";
 let dialogVisable = ref(false)
 let dialogImage = ref()
+let addr = ref()
 interface Person{
   name: string,
   imgSrc: string
@@ -132,6 +134,7 @@ snow();
 function getIPAddress(){
   var Ip=returnCitySN['cip']
   var cityname=returnCitySN['cname']
+  addr.value = returnCitySN
   return cityname
 }
 
