@@ -15,7 +15,6 @@
     </el-card>
     <div>
       📍 {{getIPAddress()}} 🏠
-      {{ addr }}
     </div>
     <el-card shadow="always" style="font-size: 70px; margin: 30px">
       🎅
@@ -23,10 +22,10 @@
   </div>
 <!--  <el-image :src="require('@/pages/christmas/assets/cad.jpg')"></el-image>-->
   <div>
-    <el-dialog v-model="dialogVisable" style="">
+    <el-dialog v-model="dialogVisable" style="width: fit-content">
 <!--      <span style="text-align: center">hello</span>-->
       <el-card shadow="always">
-        <el-image :src="dialogImage" ></el-image>
+        <el-image :src="dialogImage" style="width: 300px" alt="这是一张图片，但是不知道为啥没有展示出来"></el-image>
       </el-card>
     </el-dialog>
   </div>
@@ -43,6 +42,8 @@ interface Person{
   name: string,
   imgSrc: string
 }
+let imagesModuel = require.context('./assets/photos')
+let imagesPaths = imagesModuel.keys()
 
 let persons : Person[] =[
   {
@@ -58,6 +59,9 @@ let persons : Person[] =[
     imgSrc: require('@/pages/christmas/assets/fc.jpg')
   },
 ]
+function getRandom(n:number){
+  return Math.floor(Math.random() * n)
+}
 
 function snow() {
   //  1、定义一片雪花模板
@@ -99,7 +103,10 @@ function snow() {
     cloneFlake.innerHTML = contents[Math.round(Math.random() * (contents.length - 1))]
     cloneFlake.onclick = function () {
       dialogVisable.value = true
-      dialogImage.value = require('@/pages/christmas/assets/fc.jpg')
+      let num = getRandom(imagesPaths.length)
+      // num = 1
+      // console.log(num, imagesPaths[num])
+      dialogImage.value = require('@/pages/christmas/assets/photos' + imagesPaths[num].substring(1))
     }
 
     //第一次修改样式，定义克隆出来的雪花的样式
@@ -132,10 +139,15 @@ function snow() {
 }
 snow();
 function getIPAddress(){
-  var Ip=returnCitySN['cip']
-  var cityname=returnCitySN['cname']
-  addr.value = returnCitySN
-  return cityname
+  try{
+    var Ip=returnCitySN['cip']
+    var cityname=returnCitySN['cname']
+    addr.value = returnCitySN
+    return cityname
+  }
+  catch (e) {
+    location.reload()
+  }
 }
 
 </script>
