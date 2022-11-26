@@ -26,7 +26,7 @@
   </div>
 <!--  <el-image :src="require('@/pages/christmas/assets/cad.jpg')"></el-image>-->
   <div>
-    <el-dialog v-model="dialogVisable" style="width: fit-content">
+    <el-dialog v-model="dialogVisable" style="width: fit-content" @close="getNextImage">
       <el-card shadow="always">
         <el-image :src="dialogImage" style="width: 300px" alt="这是一张图片.jpg"></el-image>
       </el-card>
@@ -151,6 +151,13 @@ function getGiftReciever(){
   }, animation())
 
 }
+function getNextImage(){
+  let num = getRandom(imagesPaths.length)
+  // console.log(num)
+  dialogImage.value = require('@/pages/christmas/assets/photos' + imagesPaths[num].substring(1))
+}
+getNextImage()
+
 
 function snow() {
   //  1、定义一片雪花模板
@@ -192,8 +199,6 @@ function snow() {
     cloneFlake.innerHTML = contents[Math.round(Math.random() * (contents.length - 1))]
     if(cloneFlake.innerHTML === '🎁'){
       cloneFlake.onclick = function () {
-        let num = getRandom(imagesPaths.length)
-        dialogImage.value = require('@/pages/christmas/assets/photos' + imagesPaths[num].substring(1))
         dialogVisable.value = true
       }
     }
