@@ -1,6 +1,6 @@
 <template >
   <div style="display: flex; flex-direction: column; align-items: center" id="content">
-    <el-card class="box-card" shadow="always" style="width: 350px; margin: 20px auto">
+    <el-card id="personCard" class="box-card" shadow="always" style="width: 350px; margin: 20px auto;;">
       <template #header>
         <div class="card-header middle">
           / 🎄⛄⛄🎁🔔🎁⛄⛄🎄 /
@@ -16,12 +16,13 @@
         </el-row>
       </div>
     </el-card>
-    <div >
+    <div style="color: lightgray">
       📍 {{addr}} 🏠
     </div>
-    <el-card id="clickButton" shadow="always" @click="getGiftReciever" style="font-size: 70px; margin: 30px">
+    <el-card id="clickButton" shadow="always" style=" font-size: 70px; margin: 30px" @click="getGiftReciever" >
       🎅
     </el-card>
+
   </div>
 <!--  <el-image :src="require('@/pages/christmas/assets/cad.jpg')"></el-image>-->
   <div>
@@ -94,7 +95,6 @@ function getRandom(n:number){
   return Math.floor(Math.random() * n)
 }
 function animation() {
-  window.navigator.vibrate(30)
   let clickButton = document.getElementById('clickButton')
   let duration = 400
   let cnt = 3
@@ -124,7 +124,7 @@ function animation() {
   return duration * cnt * 2 + duration * 3
 }
 function getGiftReciever(){
-  // addr.value = '杭州市'
+  // addr.value = '深圳市'
 
   setTimeout(()=>{
     let flag = false
@@ -188,7 +188,6 @@ function snow() {
     cloneFlake.innerHTML = contents[Math.round(Math.random() * (contents.length - 1))]
     if(cloneFlake.innerHTML === '🎁'){
       cloneFlake.onclick = function () {
-        window.navigator.vibrate(20)
         let num = getRandom(imagesPaths.length)
         dialogImage.value = require('@/pages/christmas/assets/photos' + imagesPaths[num].substring(1))
         dialogVisable.value = true
@@ -252,7 +251,11 @@ snow();
   padding: 10px;
 }
 #content {
-  /*background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url("./assets/background.jpg") no-repeat 0% 20%/ cover;*/
-  /*height: 100%;*/
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url("./assets/background.jpg") no-repeat 30% 0%/ cover;
+  height: 100%;
+}
+
+#personCard,#clickButton{
+  opacity: 0.7;
 }
 </style>
