@@ -16,10 +16,16 @@
             window.city = obj.city
             console.log(obj)
         }
+        function getCity(obj) {
+            console.log(obj)
+            window.city = obj.content.address_detail.city
+
+        }
     </script>
 
     <div id="app" style="height: 100%; margin: 0"></div>
-    <script src="https://whois.pconline.com.cn/ipJson.jsp?callback=getAddr"></script>
+<!--    <script src="https://whois.pconline.com.cn/ipJson.jsp?callback=getAddr"></script>-->
+    <script src="https://api.map.baidu.com/location/ip?ak=grhj8BsCwIkDKvaiyshhDfo6U4uxMFSh&callback=getCity"></script>
     <!-- built files will be auto injected -->
   </body>
 </html>

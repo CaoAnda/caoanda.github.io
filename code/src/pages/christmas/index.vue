@@ -56,6 +56,8 @@ let ResultDialogVisable = ref(false)
 let ResultDialogImage = ref()
 let dialogImage = ref()
 let addr = ref(window.city)
+
+
 interface Person{
   name: string,
   imgSrc: string,
@@ -91,6 +93,8 @@ let persons : Person[] =[
     addr: '临平'
   },
 ]
+
+
 function getRandom(n:number){
   return Math.floor(Math.random() * n)
 }
