@@ -14,7 +14,7 @@
       </div>
     </el-card>
     <div>
-      📍 {{getIPAddress()}} 🏠
+      📍 {{addr}} 🏠
     </div>
     <el-card shadow="always" style="font-size: 70px; margin: 30px">
       🎅
@@ -37,7 +37,7 @@
 import {ref} from "vue";
 let dialogVisable = ref(false)
 let dialogImage = ref()
-let addr = ref()
+let addr = ref(window.city)
 interface Person{
   name: string,
   imgSrc: string
@@ -83,7 +83,7 @@ function snow() {
     //随机生成雪花下落 开始 时left的值，相当于开始时X轴的位置
     var startLeft = Math.random() * documentWidth;
     //随机生成雪花下落 结束 时left的值，相当于结束时X轴的位置
-    var endLeft = (Math.random() * 1.2 - 0.6) * documentWidth + startLeft;
+    var endLeft = (Math.random() * 1.0 - 0.5) * documentWidth + startLeft;
     if (endLeft < 0){
       endLeft = -endLeft
     }
@@ -102,11 +102,11 @@ function snow() {
     var cloneFlake = flake.cloneNode(true);
     cloneFlake.innerHTML = contents[Math.round(Math.random() * (contents.length - 1))]
     cloneFlake.onclick = function () {
-      dialogVisable.value = true
       let num = getRandom(imagesPaths.length)
-      // num = 1
-      // console.log(num, imagesPaths[num])
       dialogImage.value = require('@/pages/christmas/assets/photos' + imagesPaths[num].substring(1))
+      dialogVisable.value = true
+
+      window.navigator.vibrate(20)
     }
 
     //第一次修改样式，定义克隆出来的雪花的样式
@@ -138,19 +138,9 @@ function snow() {
   }, millisec);
 }
 snow();
-function getIPAddress(){
-  try{
-    var Ip=returnCitySN['cip']
-    var cityname=returnCitySN['cname']
-    addr.value = returnCitySN
-    return cityname
-  }
-  catch (e) {
-    location.reload()
-  }
-}
 
 </script>
+
 
 <style scoped>
 .middle {

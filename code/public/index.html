@@ -11,8 +11,14 @@
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
+    <script>
+        function getAddr(obj) {
+            window.city = obj.city
+        }
+    </script>
+
     <div id="app"></div>
+    <script src="https://whois.pconline.com.cn/ipJson.jsp?callback=getAddr"></script>
     <!-- built files will be auto injected -->
   </body>
 </html>
