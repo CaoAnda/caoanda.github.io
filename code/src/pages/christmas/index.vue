@@ -24,11 +24,16 @@
     </el-card>
 
   </div>
-<!--  <el-image :src="require('@/pages/christmas/assets/cad.jpg')"></el-image>-->
+
   <div>
-    <el-dialog v-model="dialogVisable" style="width: fit-content">
+    <el-dialog v-model="dialogVisable[0].value" style="width: fit-content">
       <el-card shadow="always">
-        <el-image :src="dialogImage" style="width: 300px" alt="这是一张图片.jpg"></el-image>
+        <el-image :src="dialogImage[0].value" style="width: 300px" alt="这是一张图片.jpg"></el-image>
+      </el-card>
+    </el-dialog>
+    <el-dialog v-model="dialogVisable[1].value" style="width: fit-content">
+      <el-card shadow="always">
+        <el-image :src="dialogImage[1].value" style="width: 300px" alt="这是一张图片.jpg"></el-image>
       </el-card>
     </el-dialog>
 
@@ -51,12 +56,13 @@
 import {ref} from "vue";
 import {ElNotification} from 'element-plus'
 
-let dialogVisable = ref(false)
+let dialogVisable = [ref(false), ref(false)]
+let dialogImage = [ref(''), ref('')]
+let dialogID = ref(0)
 let ResultDialogVisable = ref(false)
 let ResultDialogImage = ref()
-let dialogImage = ref()
-let addr = ref(window.city)
 
+let addr = ref(window.city)
 
 interface Person{
   name: string,
@@ -151,6 +157,14 @@ function getGiftReciever(){
   }, animation())
 
 }
+preLoadNextImage()
+dialogID.value += 1
+function preLoadNextImage(){
+  let num = getRandom(imagesPaths.length)
+  dialogImage[(dialogID.value + 1) % dialogImage.length].value = require('@/pages/christmas/assets/photos' + imagesPaths[num].substring(1))
+}
+// dialogVisable[dialogID.value % dialogVisable.length].value = true
+// console.log()
 
 function snow() {
   //  1、定义一片雪花模板
@@ -192,9 +206,10 @@ function snow() {
     cloneFlake.innerHTML = contents[Math.round(Math.random() * (contents.length - 1))]
     if(cloneFlake.innerHTML === '🎁'){
       cloneFlake.onclick = function () {
-        let num = getRandom(imagesPaths.length)
-        dialogImage.value = require('@/pages/christmas/assets/photos' + imagesPaths[num].substring(1))
-        dialogVisable.value = true
+        preLoadNextImage()
+        // console.log(dialogVisable)
+        dialogVisable[dialogID.value % dialogVisable.length].value = true
+        dialogID.value += 1
       }
     }
     //第一次修改样式，定义克隆出来的雪花的样式
