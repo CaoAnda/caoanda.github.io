@@ -24,10 +24,16 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
+          ruby-version: '3.3'
           bundler-cache: true
 
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y imagemagick libvips
+
       - name: Build with Jekyll
-        run: bundle exec jekyll build
+        run: bundle exec jekyll build --verbose
         env:
           JEKYLL_ENV: production
 
