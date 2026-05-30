@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'jekyll'
+gem 'jekyll', '~> 4.0'
 
 # Core plugins that directly affect site building
 group :jekyll_plugins do
@@ -18,7 +18,7 @@ group :jekyll_plugins do
     gem 'jekyll-regex-replace'
     gem 'jekyll-scholar'
     gem 'jekyll-sitemap'
-    gem 'jekyll-socials'
+    gem 'jekyll-socials', '0.0.6'
     gem 'jekyll-tabs'
     gem 'jekyll-terser', :git => "https://github.com/RobertoJBeltran/jekyll-terser.git"
     gem 'jekyll-toc'
