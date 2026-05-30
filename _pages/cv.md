@@ -9,9 +9,9 @@ nav_order: 4
 ## Education
 
 - **Ph.D. in Computer Science** — Zhejiang University, 2024 &ndash; present
-  - College of Computer Science, [VIPA Lab](https://www.vipazoo.cn/), co-advised by Prof. Mingli Song and Prof. Jie Song
+  - College of Computer Science, VIPA Lab, co-advised by Prof. Mingli Song and Prof. Jie Song
 - **M.S. in Artificial Intelligence** — Zhejiang University, 2022 &ndash; 2024
-  - School of Software Technology, [VIPA Lab](https://www.vipazoo.cn/), advised by Prof. Mingli Song
+  - School of Software Technology, VIPA Lab, advised by Prof. Mingli Song
 - **B.E. in Intelligent Science and Technology** — Zhejiang Sci-Tech University, 2018 &ndash; 2022
   - Qixin Honors School
 
