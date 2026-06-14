@@ -24,6 +24,7 @@ nav_order: 3
 
 ## University
 
+- **Zhejiang University** &mdash; Honor for Graduates: Excellence in Academic (Practice) Innovation, 2025.12
 - **Zhejiang University** &mdash; Outstanding Postgraduate, 2023.10
 - **Zhejiang University** &mdash; Five-Excellence Postgraduate, 2023.10
 - **Zhejiang University** &mdash; Outstanding League Member, 2023.05
