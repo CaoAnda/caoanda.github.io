@@ -2,9 +2,17 @@
 layout: page
 title: CV
 permalink: /cv/
-nav: false
+nav: true
 nav_order: 4
+dropdown: true
+children:
+  - title: English
+    permalink: /assets/pdf/caoanda-cv-en.pdf
+  - title: 中文
+    permalink: /assets/pdf/caoanda-cv-zh.pdf
 ---
+
+📄 **Download CV:** [English](/assets/pdf/caoanda-cv-en.pdf) | [中文](/assets/pdf/caoanda-cv-zh.pdf)
 
 ## Education
 
