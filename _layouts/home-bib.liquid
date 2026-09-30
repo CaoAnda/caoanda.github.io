@@ -1,0 +1,59 @@
+---
+---
+<article class="home-paper{% if entry.author_array.first.last == site.last_name and entry.author_array.first.first == site.first_name %} home-paper-featured{% endif %}">
+  <div class="home-paper-visual">
+    {% if entry.preview %}
+      {% if entry.preview contains '://' %}
+        {% assign preview = entry.preview %}
+      {% else %}
+        {% assign preview = entry.preview | prepend: '/assets/img/publication_preview/' | relative_url %}
+      {% endif %}
+      <a
+        class="home-paper-image-link"
+        href="{{ preview }}"
+        target="_blank"
+        rel="noopener"
+        aria-label="View full-size figure for {{ entry.title | escape }}"
+      >
+        <img src="{{ preview }}" alt="Figure from {{ entry.title | escape }}" loading="lazy" width="240" height="150">
+      </a>
+    {% else %}
+      <span class="home-paper-venue">{{ entry.abbr | default: entry.type }}</span>
+      <span class="home-paper-year">{{ entry.year }}</span>
+    {% endif %}
+  </div>
+  <div class="home-paper-content">
+    <p class="home-paper-kicker">{{ entry.abbr }} · {{ entry.year }}</p>
+    <h3>{{ entry.title }}</h3>
+    <p class="home-paper-authors">
+      {%- for author in entry.author_array -%}
+        {%- capture author_name -%}{{ author.first }} {{ author.last }}{%- endcapture -%}
+        {%- if site.scholar.last_name contains author.last and site.scholar.first_name contains author.first -%}
+          <strong>{{ author_name }}</strong>
+        {%- else -%}
+          {{ author_name }}
+        {%- endif -%}
+        {%- unless forloop.last -%}{{ ', ' }}{%- endunless -%}
+      {%- endfor -%}
+    </p>
+    <div class="home-paper-links">
+      {% if entry.url -%}
+        <a href="{{ entry.url }}">Paper <span aria-hidden="true">↗</span></a>
+      {%- elsif entry.doi -%}
+        <a href="https://doi.org/{{ entry.doi }}">Paper <span aria-hidden="true">↗</span></a>
+      {%- endif %}
+      {% if entry.code -%}
+        <a href="{{ entry.code }}">Code <span aria-hidden="true">↗</span></a>
+      {%- endif %}
+      {% if entry.arxiv -%}
+        <a href="https://arxiv.org/abs/{{ entry.arxiv }}">arXiv <span aria-hidden="true">↗</span></a>
+      {%- endif %}
+      {% if entry.bibtex_show %}
+        <details>
+          <summary>BibTeX</summary>
+          <pre>{{ entry.bibtex | escape }}</pre>
+        </details>
+      {% endif %}
+    </div>
+  </div>
+</article>

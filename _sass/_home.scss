@@ -1,0 +1,460 @@
+// Shared warm theme, followed by the academic homepage and publication layouts.
+body.warm-site {
+  --global-bg-color: #fbfaf7;
+  --global-text-color: #24332f;
+  --global-text-color-light: #596a61;
+  --global-theme-color: #24675c;
+  --global-hover-color: #174d43;
+  --global-divider-color: #dce2dc;
+  --home-wash: #edf2eb;
+  --home-tile: #e5ece1;
+  background: var(--global-bg-color);
+  color: var(--global-text-color);
+  font-family: Arial, "PingFang SC", sans-serif;
+  padding-bottom: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  --global-card-bg-color: #f3f5ef;
+  --global-code-bg-color: #edf2eb;
+  > .container {
+    flex: 1;
+    width: 100%;
+  }
+
+  > .container {
+    max-width: 1050px;
+    padding-inline: 40px;
+  }
+  #navbar {
+    box-shadow: none;
+    opacity: 1;
+    border-bottom: 1px solid var(--global-divider-color);
+    background: var(--global-bg-color);
+    .container {
+      max-width: 1050px;
+      padding-inline: 40px;
+    }
+    .nav-link {
+      font-size: 0.85rem;
+    }
+  }
+  .home-brand {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+  footer.fixed-bottom {
+    .container {
+      color: var(--global-text-color-light);
+    }
+    position: static;
+    margin-top: 3rem;
+    background: var(--global-bg-color);
+    color: var(--global-text-color-light);
+    border-top: 1px solid var(--global-divider-color);
+    padding-block: 1rem;
+    a {
+      color: var(--global-theme-color);
+    }
+  }
+  a:focus-visible,
+  summary:focus-visible {
+    outline: 2px solid var(--global-theme-color);
+    outline-offset: 5px;
+  }
+}
+html[data-theme="dark"] body.warm-site {
+  --global-bg-color: #18221e;
+  --global-text-color: #e5ece5;
+  --global-text-color-light: #b0bfb4;
+  --global-theme-color: #9bd1bc;
+  --global-hover-color: #c5ecdb;
+  --global-divider-color: #37493e;
+  --home-wash: #24342b;
+  --home-tile: #304438;
+  --global-card-bg-color: #24342b;
+  --global-code-bg-color: #24342b;
+}
+.academic-home {
+  line-height: 1.8;
+  .home-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 210px;
+    gap: 65px;
+    align-items: center;
+    padding: 32px 0 64px;
+  }
+  .home-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--global-theme-color);
+    margin: 0 0 12px;
+    span {
+      margin-inline: 9px;
+    }
+  }
+  h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.8rem, 6vw, 4rem);
+    font-weight: 400;
+    letter-spacing: -0.045em;
+    margin: 0 0 12px;
+    line-height: 1.1;
+  }
+  .home-role {
+    font-size: 0.87rem;
+    margin-bottom: 20px;
+    color: var(--global-text-color-light);
+  }
+  .home-bio {
+    font-size: 0.94rem;
+    color: var(--global-text-color-light);
+    strong {
+      color: var(--global-text-color);
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .home-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+    font-size: 0.83rem;
+    margin-top: 24px;
+    a {
+      padding-block: 6px;
+    }
+  }
+  .home-portrait {
+    margin: 0;
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 24 / 29;
+      object-fit: cover;
+      object-position: center 30%;
+      border-radius: 100px 100px 10px 10px;
+    }
+    figcaption {
+      text-align: center;
+      font-size: 0.72rem;
+      margin-top: 12px;
+      color: var(--global-text-color-light);
+    }
+  }
+  h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.85rem;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+  }
+  .home-section-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    align-items: end;
+    margin-bottom: 24px;
+    h2 {
+      margin-bottom: 0;
+    }
+    > a {
+      font-size: 0.8rem;
+      white-space: nowrap;
+      padding-block: 6px;
+    }
+  }
+  #research,
+  #background {
+    scroll-margin-top: 100px;
+  }
+  ol.bibliography {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    > li {
+      margin: 0;
+    }
+  }
+  .home-paper {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 26px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--global-divider-color);
+  }
+  .home-paper-featured {
+    padding: 25px;
+    border: 0;
+    background: var(--home-wash);
+    border-radius: 12px;
+  }
+  .home-paper-visual {
+    background: var(--home-tile);
+    min-height: 126px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: start;
+    color: var(--global-theme-color);
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: inherit;
+    }
+  }
+  .home-paper-venue {
+    font:
+      400 1.65rem Georgia,
+      serif;
+  }
+  .home-paper-year {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    margin-top: 8px;
+  }
+  .home-paper-kicker {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    color: var(--global-theme-color);
+    text-transform: uppercase;
+    margin: 0 0 7px;
+  }
+  .home-paper h3 {
+    font-size: 1.07rem;
+    line-height: 1.5;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .home-paper-authors {
+    font-size: 0.8rem;
+    color: var(--global-text-color-light);
+    margin-bottom: 0;
+    strong {
+      color: var(--global-text-color);
+    }
+  }
+  .home-paper-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 18px;
+    margin-top: 10px;
+    font-size: 0.76rem;
+    a,
+    summary {
+      padding-block: 5px;
+    }
+    details {
+      max-width: 100%;
+    }
+    summary {
+      color: var(--global-theme-color);
+      cursor: pointer;
+    }
+    pre {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-size: 0.72rem;
+      padding: 12px;
+      color: var(--global-text-color);
+      background: var(--global-bg-color);
+    }
+  }
+  .home-background {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 60px;
+    padding-top: 48px;
+    h2 {
+      font-size: 1.55rem;
+      margin-bottom: 22px;
+    }
+    h3 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-top: 25px;
+    }
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+    li {
+      font-size: 0.83rem;
+      color: var(--global-text-color-light);
+      margin-bottom: 18px;
+      strong {
+        display: block;
+        color: var(--global-text-color);
+        font-weight: 600;
+      }
+    }
+    p {
+      font-size: 0.82rem;
+    }
+  }
+}
+@media (max-width: 767px) {
+  body.warm-site > .container,
+  body.warm-site #navbar .container {
+    padding-inline: 24px;
+  }
+  .academic-home {
+    .home-hero {
+      grid-template-columns: minmax(0, 1fr) 145px;
+      gap: 25px;
+      padding-bottom: 40px;
+    }
+    .home-paper {
+      grid-template-columns: 160px minmax(0, 1fr);
+      gap: 18px;
+    }
+    .home-paper-featured {
+      padding: 18px;
+    }
+    .home-paper-visual {
+      min-height: 110px;
+    }
+    .home-background {
+      gap: 28px;
+    }
+  }
+}
+@media (max-width: 575px) {
+  .academic-home {
+    .home-hero {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: start;
+      padding-top: 12px;
+    }
+    .home-portrait {
+      width: 125px;
+    }
+    .home-section-heading {
+      flex-wrap: wrap;
+    }
+    .home-paper {
+      grid-template-columns: 1fr;
+    }
+    .home-paper-visual {
+      min-height: auto;
+      padding: 12px 16px;
+      flex-direction: row;
+      gap: 12px;
+      justify-content: start;
+      .home-paper-venue {
+        font-size: 1.1rem;
+      }
+      .home-paper-year {
+        margin-top: 0;
+      }
+      img {
+        max-width: 180px;
+      }
+    }
+    .home-background {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .home-contact a,
+    .home-paper-links a,
+    .home-paper-links summary {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+}
+
+.academic-home .home-paper-image-link {
+  display: block;
+  width: 100%;
+  border-radius: inherit;
+  background: #fff;
+  padding: 8px;
+  img {
+    display: block;
+    width: 100%;
+    height: 145px;
+    max-width: none;
+    object-fit: contain;
+  }
+}
+@media (max-width: 575px) {
+  .academic-home .home-paper-visual:has(.home-paper-image-link) {
+    padding: 0;
+  }
+  .academic-home .home-paper-image-link img {
+    max-width: none;
+    height: 175px;
+  }
+}
+
+// Interior pages share the homepage's editorial headings and quiet spacing.
+body.warm-site .post {
+  padding-top: 26px;
+  line-height: 1.8;
+  .post-header {
+    margin-bottom: 38px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--global-divider-color);
+  }
+  .post-title {
+    font:
+      400 clamp(2.5rem, 5vw, 3.5rem) / 1.15 Georgia,
+      serif;
+    letter-spacing: -0.035em;
+  }
+  .post-description {
+    color: var(--global-text-color-light);
+    font-size: 0.9rem;
+    margin: 14px 0 0;
+  }
+  h2 {
+    font:
+      400 1.65rem / 1.3 Georgia,
+      serif;
+    margin-top: 2.25rem;
+    margin-bottom: 1.25rem;
+  }
+  article > ul {
+    padding-left: 1.2rem;
+  }
+  article > ul > li {
+    margin-bottom: 1rem;
+    font-size: 0.94rem;
+  }
+  li::marker {
+    color: var(--global-theme-color);
+  }
+  li ul {
+    color: var(--global-text-color-light);
+    padding-left: 1.2rem;
+  }
+  strong {
+    font-weight: 600;
+  }
+  .academic-home h2.bibliography {
+    color: var(--global-text-color-light);
+    font-size: 1.15rem;
+    border-bottom: 1px solid var(--global-divider-color);
+    padding-bottom: 12px;
+  }
+}
+@media (max-width: 575px) {
+  body.warm-site .post {
+    padding-top: 8px;
+  }
+  body.warm-site .post .post-header {
+    margin-bottom: 26px;
+  }
+}
