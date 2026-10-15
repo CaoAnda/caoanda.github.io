@@ -29,6 +29,8 @@ Large Language Models, Model Merging, Deep Learning, Computer Vision
 
 ## Selected Honors
 
+- **Outstanding Postgraduate**, Zhejiang University, 2025&ndash;2026 academic year
+- **Five-Excellence Postgraduate**, Zhejiang University, 2025&ndash;2026 academic year
 - AFAC 2023 Financial Intelligence Challenge, **Third Prize** (Team Leader), 2023
 - ACM-ICPC Asia Regional (Jinan), **Silver Medal** (Team Leader), 2020
 - ACM-ICPC Asia EC-Final, **Bronze Medal**, 2021

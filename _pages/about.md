@@ -41,6 +41,8 @@ I am a PhD student at the College of Computer Science, Zhejiang University, work
 
 ## Beyond research
 
+- **Outstanding Postgraduate & Five-Excellence Postgraduate**
+  Zhejiang University · 2025&ndash;2026 academic year
 - **ACM-ICPC Asia Regional · Silver Medal**
   Team Leader · Jinan, 2020
 - **AFAC Financial Intelligence Challenge · 3rd Place**
